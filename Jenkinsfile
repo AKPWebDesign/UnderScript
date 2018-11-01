@@ -1,6 +1,14 @@
 pipeline {
   agent {
-    docker { image 'node:8-alpine' }
+    kubernetes {
+      label 'node'
+      containerTemplate {
+        name 'node'
+        image 'node:8-alpine'
+        ttyEnabled true
+        command 'cat'
+      }
+    }
   }
   stages {
     stage('Setup') {
