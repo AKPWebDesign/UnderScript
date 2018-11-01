@@ -16,6 +16,7 @@ pipeline {
         sh 'node --version'
         sh 'npm --version'
         sh 'npm install -g gulp-cli'
+        sh 'npm install'
       }
     }
     stage('Build') {
