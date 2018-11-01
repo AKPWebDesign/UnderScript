@@ -24,11 +24,15 @@ pipeline {
         sh 'npm run build'
       }
     }
-    stage('Deploy') {
-      steps {
-        sh 'ls -la'
-        sh 'no deploy yet lol'
-      }
+    // stage('Deploy') {
+    //   steps {
+    //     sh 'ls -la'
+    //   }
+    // }
+  }
+  post {
+    always {
+      archiveArtifacts artifacts: 'docs/undercards.*.js', fingerprint: true
     }
   }
 }
